@@ -1,0 +1,18 @@
+================================================================================
+ATIS 語音辨識記錄
+================================================================================
+機場代碼: RCTP
+機場名稱: 桃園機場 Taoyuan Airport
+辨識時間: 2026-01-01 00:23:52
+音訊檔案: ./temp/rec.mp3
+文字長度: 949 字元
+================================================================================
+
+【辨識結果】
+
+H 1020 Hectopascal. No sig. Due to flow control by Manila FIR, traffic confirmed may be delayed. Caution bird activity in the vicinity of the aerodrome. Inform Taipei approach or Taipei Tower on initial contact. You have information Uniform. Taiwan Taoyuan International Airport, information for arrival and departure Uniform, 0000 Zulu. Expect ILS approach. Operational information. Runway 05 Left and runway 05 Right for arrival and departure. Wind 060 degrees 18 knots. Visibility 10 kilometers or more. Cloud. Few 1,500 fit. Scattered 5,000 fit. Broken 15,000 fit. Temperature 18. Due point 10. QNH 1020 Hectopascal. No sig. Due to flow control by Manila FIR, traffic confirmed may be delayed. Caution bird activity in the vicinity of the aerodrome. Inform Taipei approach or Taipei Tower on initial contact. You have information Uniform. Taiwan Taoyuan International Airport, information for arrival and departure Uniform, 0000 Zulu. Expect ILS
+
+================================================================================
+錄音檔案已保存為: temp/rec.mp3
+可使用音訊播放器檢查錄音內容
+================================================================================

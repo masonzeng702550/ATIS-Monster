@@ -1,0 +1,25 @@
+# Flask Web Framework
+Flask>=3.0.0
+Flask-CORS>=4.0.0
+
+# Gemini AI API (文字翻譯 + 圖像生成)
+google-genai>=0.2.2
+
+# 語音辨識
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.14
+
+# 音訊處理
+pydub>=0.25.1
+
+# 圖像處理
+Pillow>=10.4.0
+
+# 環境變數管理
+python-dotenv>=1.0.0
+
+# HTTP 請求
+requests>=2.31.0
+
+# 日誌與工具
+python-json-logger>=2.0.7

@@ -1,0 +1,400 @@
+/* ===== 全域樣式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 顏色主題 */
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== 頁首 ===== */
+.header {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+/* ===== 主要內容 ===== */
+.main-content {
+    flex: 1;
+    padding: 40px 0;
+}
+
+/* ===== 機場選擇區 ===== */
+.airport-selection {
+    margin-bottom: 40px;
+}
+
+.airport-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.airport-btn {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow);
+}
+
+.airport-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.airport-btn:active {
+    transform: translateY(0);
+}
+
+.airport-btn.processing {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    pointer-events: none;
+}
+
+.airport-btn.completed {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.airport-code {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.airport-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.airport-name-en {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ===== Loading 動畫 ===== */
+.loading-container {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.loading-subtext {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* ===== 錯誤訊息 ===== */
+.error-message {
+    background: #fee2e2;
+    border: 2px solid var(--error-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.error-icon {
+    font-size: 1.5rem;
+}
+
+.error-message span:nth-child(2) {
+    flex: 1;
+    color: #991b1b;
+    font-weight: 500;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #991b1b;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-close:hover {
+    opacity: 0.7;
+}
+
+/* ===== 結果顯示區 ===== */
+.result-section {
+    margin-top: 40px;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.result-panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.panel-title {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.panel-content {
+    padding: 25px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.placeholder {
+    color: #94a3b8;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.1rem;
+}
+
+/* 翻譯內容樣式 */
+.translation-content pre {
+    white-space: pre-wrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* 圖片內容樣式 */
+.image-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* ===== 頁尾 ===== */
+.footer {
+    background: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.footer-note {
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+.footer-note a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.footer-note a:hover {
+    text-decoration: underline;
+}
+
+/* ===== 響應式設計 ===== */
+@media (max-width: 1024px) {
+    .result-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .airport-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .airport-btn {
+        padding: 25px 15px;
+    }
+
+    .airport-code {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===== 捲軸樣式 ===== */
+.panel-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ===== 音訊播放器 ===== */
+.audio-player-section {
+    margin: 30px 0;
+    animation: slideDown 0.3s ease-out;
+}
+
+.audio-player-container {
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.audio-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.audio-airport {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+#atis-audio-player {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 8px;
+}
+
+.stop-audio-btn {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stop-audio-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+.stop-audio-btn:active {
+    transform: scale(0.98);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

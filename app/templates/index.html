@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIS Monster - 台灣機場自動情報服務翻譯系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 頁首 -->
+    <header class="header">
+        <div class="container">
+            <h1 class="title">🛫 ATIS Monster</h1>
+            <p class="subtitle">台灣機場自動情報服務翻譯系統</p>
+        </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 上半部：機場選擇按鈕 -->
+            <section class="airport-selection">
+                <div class="airport-buttons">
+                    <button class="airport-btn" data-airport="RCSS" onclick="processATIS('RCSS')">
+                        <span class="airport-code">RCSS</span>
+                        <span class="airport-name">松山機場</span>
+                        <span class="airport-name-en">Songshan Airport</span>
+                    </button>
+
+                    <button class="airport-btn" data-airport="RCTP" onclick="processATIS('RCTP')">
+                        <span class="airport-code">RCTP</span>
+                        <span class="airport-name">桃園機場</span>
+                        <span class="airport-name-en">Taoyuan Airport</span>
+                    </button>
+
+                    <button class="airport-btn" data-airport="RCKH" onclick="processATIS('RCKH')">
+                        <span class="airport-code">RCKH</span>
+                        <span class="airport-name">高雄機場</span>
+                        <span class="airport-name-en">Kaohsiung Airport</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ATIS 音訊播放器 -->
+            <section class="audio-player-section" id="audio-player-section" style="display: none;">
+                <div class="audio-player-container">
+                    <h3 class="audio-title">🔊 ATIS 即時廣播</h3>
+                    <p class="audio-airport" id="audio-airport-name"></p>
+                    <audio id="atis-audio-player" controls autoplay>
+                        您的瀏覽器不支援音訊播放。
+                    </audio>
+                    <button class="stop-audio-btn" onclick="stopATISAudio()">停止播放</button>
+                </div>
+            </section>
+
+            <!-- Loading 提示 -->
+            <div id="loading" class="loading-container" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">處理中，請稍候...</p>
+                <p class="loading-subtext" id="loading-status">正在錄製 ATIS 音訊 (90秒)</p>
+            </div>
+
+            <!-- 錯誤訊息 -->
+            <div id="error-message" class="error-message" style="display: none;">
+                <span class="error-icon">⚠️</span>
+                <span id="error-text"></span>
+                <button class="error-close" onclick="closeError()">✕</button>
+            </div>
+
+            <!-- 下半部：結果顯示區 -->
+            <section class="result-section" id="result-section" style="display: none;">
+                <div class="result-container">
+                    <!-- 左側：AI 解釋內容 -->
+                    <div class="result-panel translation-panel">
+                        <h2 class="panel-title">📝 AI 解釋內容</h2>
+                        <div class="panel-content" id="translation-content">
+                            <p class="placeholder">點擊上方機場按鈕開始</p>
+                        </div>
+                    </div>
+
+                    <!-- 右側：天氣簡圖 -->
+                    <div class="result-panel image-panel">
+                        <h2 class="panel-title">🎨 天氣簡圖</h2>
+                        <div class="panel-content image-content" id="image-content">
+                            <p class="placeholder">點擊上方機場按鈕開始</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 ATIS Monster | Powered by Gemini AI</p>
+            <p class="footer-note">資料來源：<a href="https://stream.twatc.net/" target="_blank">stream.twatc.net</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
