@@ -1,5 +1,7 @@
 # ATIS Monster - 台灣機場自動情報服務翻譯系統
 
+![image](https://github.com/masonzeng702550/ATIS-Monster/blob/main/screenshot.png)
+
 ## English Description
 
 **ATIS Monster** is an intelligent web application that automatically processes, translates, and visualizes ATIS (Automatic Terminal Information Service) broadcasts from Taiwan's three major airports: Songshan (RCSS), Taoyuan (RCTP), and Kaohsiung (RCKH).
